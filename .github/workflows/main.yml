@@ -14,12 +14,12 @@ jobs:
         uses: actions/checkout@v2
 
       # 安装 AWS CLI
-      - name: Install AWS CLI v2
-        uses: aws-actions/aws-cli-action@v2
-        with:
-          version: 2.x
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y awscli
 
-      # 使用aws-cli将SVG文件同步到Cloudflare R2
+      # 使用 aws-cli 将 SVG 文件同步到 Cloudflare R2
       - name: Sync SVG to Cloudflare R2
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
