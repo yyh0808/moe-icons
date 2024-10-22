@@ -1,0 +1,317 @@
+[
+    {
+        "name": "arrow-left",
+        "className": "arrow-left",
+        "unicode": "e900"
+    },
+    {
+        "name": "arrow-decrease",
+        "className": "arrow-decrease",
+        "unicode": "e901"
+    },
+    {
+        "name": "arrow-right",
+        "className": "arrow-right",
+        "unicode": "e902"
+    },
+    {
+        "name": "arrow-down",
+        "className": "arrow-down",
+        "unicode": "e903"
+    },
+    {
+        "name": "arrow-up",
+        "className": "arrow-up",
+        "unicode": "e904"
+    },
+    {
+        "name": "arrow-collapse-left",
+        "className": "arrow-collapse-left",
+        "unicode": "e905"
+    },
+    {
+        "name": "arrow-collapse-right",
+        "className": "arrow-collapse-right",
+        "unicode": "e906"
+    },
+    {
+        "name": "arrow-collapse-down",
+        "className": "arrow-collapse-down",
+        "unicode": "e907"
+    },
+    {
+        "name": "arrow-double-up",
+        "className": "arrow-double-up",
+        "unicode": "e908"
+    },
+    {
+        "name": "arrow-collapse-up",
+        "className": "arrow-collapse-up",
+        "unicode": "e909"
+    },
+    {
+        "name": "arrow-double-collapse-left",
+        "className": "arrow-double-collapse-left",
+        "unicode": "e90a"
+    },
+    {
+        "name": "arrow-top-left",
+        "className": "arrow-top-left",
+        "unicode": "e90b"
+    },
+    {
+        "name": "arrow-double-collapse-right",
+        "className": "arrow-double-collapse-right",
+        "unicode": "e90c"
+    },
+    {
+        "name": "arrow-top-right",
+        "className": "arrow-top-right",
+        "unicode": "e90d"
+    },
+    {
+        "name": "arrow-double-collapse-down",
+        "className": "arrow-double-collapse-down",
+        "unicode": "e90e"
+    },
+    {
+        "name": "arrow-bottom-left",
+        "className": "arrow-bottom-left",
+        "unicode": "e90f"
+    },
+    {
+        "name": "arrow-double-collapse-up",
+        "className": "arrow-double-collapse-up",
+        "unicode": "e910"
+    },
+    {
+        "name": "arrow-bottom-right",
+        "className": "arrow-bottom-right",
+        "unicode": "e911"
+    },
+    {
+        "name": "arrow-double-top-left",
+        "className": "arrow-double-top-left",
+        "unicode": "e912"
+    },
+    {
+        "name": "chevron-left",
+        "className": "chevron-left",
+        "unicode": "e913"
+    },
+    {
+        "name": "arrow-double-top-right",
+        "className": "arrow-double-top-right",
+        "unicode": "e914"
+    },
+    {
+        "name": "chevron-right",
+        "className": "chevron-right",
+        "unicode": "e915"
+    },
+    {
+        "name": "arrow-double-bottom-left",
+        "className": "arrow-double-bottom-left",
+        "unicode": "e916"
+    },
+    {
+        "name": "chevron-down",
+        "className": "chevron-down",
+        "unicode": "e917"
+    },
+    {
+        "name": "arrow-double-bottom-right",
+        "className": "arrow-double-bottom-right",
+        "unicode": "e918"
+    },
+    {
+        "name": "chevron-up",
+        "className": "chevron-up",
+        "unicode": "e919"
+    },
+    {
+        "name": "arrow-play-left",
+        "className": "arrow-play-left",
+        "unicode": "e91a"
+    },
+    {
+        "name": "chevron-collapse-left",
+        "className": "chevron-collapse-left",
+        "unicode": "e91b"
+    },
+    {
+        "name": "arrow-play-right",
+        "className": "arrow-play-right",
+        "unicode": "e91c"
+    },
+    {
+        "name": "chevron-collapse-right",
+        "className": "chevron-collapse-right",
+        "unicode": "e91d"
+    },
+    {
+        "name": "arrow-play-down",
+        "className": "arrow-play-down",
+        "unicode": "e91e"
+    },
+    {
+        "name": "chevron-collapse-down",
+        "className": "chevron-collapse-down",
+        "unicode": "e91f"
+    },
+    {
+        "name": "arrow-play-up",
+        "className": "arrow-play-up",
+        "unicode": "e920"
+    },
+    {
+        "name": "chevron-collapse-up",
+        "className": "chevron-collapse-up",
+        "unicode": "e921"
+    },
+    {
+        "name": "arrow-drop-left",
+        "className": "arrow-drop-left",
+        "unicode": "e922"
+    },
+    {
+        "name": "chevron-top-left",
+        "className": "chevron-top-left",
+        "unicode": "e923"
+    },
+    {
+        "name": "arrow-drop-right",
+        "className": "arrow-drop-right",
+        "unicode": "e924"
+    },
+    {
+        "name": "chevron-top-right",
+        "className": "chevron-top-right",
+        "unicode": "e925"
+    },
+    {
+        "name": "arrow-drop-down",
+        "className": "arrow-drop-down",
+        "unicode": "e926"
+    },
+    {
+        "name": "chevron-bottom-left",
+        "className": "chevron-bottom-left",
+        "unicode": "e927"
+    },
+    {
+        "name": "arrow-drop-up",
+        "className": "arrow-drop-up",
+        "unicode": "e928"
+    },
+    {
+        "name": "chevron-bottom-right",
+        "className": "chevron-bottom-right",
+        "unicode": "e929"
+    },
+    {
+        "name": "arrow-bold-left",
+        "className": "arrow-bold-left",
+        "unicode": "e92a"
+    },
+    {
+        "name": "arrow-double-left",
+        "className": "arrow-double-left",
+        "unicode": "e92b"
+    },
+    {
+        "name": "arrow-bold-right",
+        "className": "arrow-bold-right",
+        "unicode": "e92c"
+    },
+    {
+        "name": "arrow-double-right",
+        "className": "arrow-double-right",
+        "unicode": "e92d"
+    },
+    {
+        "name": "arrow-bold-up",
+        "className": "arrow-bold-up",
+        "unicode": "e92e"
+    },
+    {
+        "name": "arrow-double-down",
+        "className": "arrow-double-down",
+        "unicode": "e92f"
+    },
+    {
+        "name": "arrow-bold-down",
+        "className": "arrow-bold-down",
+        "unicode": "e930"
+    },
+    {
+        "name": "arrow-u-left-top",
+        "className": "arrow-u-left-top",
+        "unicode": "e931"
+    },
+    {
+        "name": "arrow-u-right-top",
+        "className": "arrow-u-right-top",
+        "unicode": "e932"
+    },
+    {
+        "name": "arrow-u-up-left",
+        "className": "arrow-u-up-left",
+        "unicode": "e933"
+    },
+    {
+        "name": "arrow-u-down-right",
+        "className": "arrow-u-down-right",
+        "unicode": "e934"
+    },
+    {
+        "name": "arrow-turn-left-top",
+        "className": "arrow-turn-left-top",
+        "unicode": "e935"
+    },
+    {
+        "name": "arrow-turn-right-top",
+        "className": "arrow-turn-right-top",
+        "unicode": "e936"
+    },
+    {
+        "name": "arrow-turn-left-bottom",
+        "className": "arrow-turn-left-bottom",
+        "unicode": "e937"
+    },
+    {
+        "name": "arrow-turn-right-bottom",
+        "className": "arrow-turn-right-bottom",
+        "unicode": "e938"
+    },
+    {
+        "name": "arrow-turn-up-right",
+        "className": "arrow-turn-up-right",
+        "unicode": "e939"
+    },
+    {
+        "name": "arrow-turn-bottom-right",
+        "className": "arrow-turn-bottom-right",
+        "unicode": "e93a"
+    },
+    {
+        "name": "arrow-turn-up-left",
+        "className": "arrow-turn-up-left",
+        "unicode": "e93b"
+    },
+    {
+        "name": "arrow-turn-bottom-left",
+        "className": "arrow-turn-bottom-left",
+        "unicode": "e93c"
+    },
+    {
+        "name": "arrow-move",
+        "className": "arrow-move",
+        "unicode": "e93d"
+    },
+    {
+        "name": "arrow-escalate",
+        "className": "arrow-escalate",
+        "unicode": "e93e"
+    }
+]

@@ -1,0 +1,84 @@
+@font-face {
+    font-family: "MoeIcons";
+    src: url('IconFont.woff2?t=1729569298104') format('woff2'),
+        url('IconFont.woff?t=1729569298104') format('woff'),
+        url('IconFont.ttf?t=1729569298104') format('truetype');
+}
+
+.iconfont {
+    font-family: "MoeIcons" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-left:before { content: "\e900"; }
+.icon-arrow-decrease:before { content: "\e901"; }
+.icon-arrow-right:before { content: "\e902"; }
+.icon-arrow-down:before { content: "\e903"; }
+.icon-arrow-up:before { content: "\e904"; }
+.icon-arrow-collapse-left:before { content: "\e905"; }
+.icon-arrow-collapse-right:before { content: "\e906"; }
+.icon-arrow-collapse-down:before { content: "\e907"; }
+.icon-arrow-double-up:before { content: "\e908"; }
+.icon-arrow-collapse-up:before { content: "\e909"; }
+.icon-arrow-double-collapse-left:before { content: "\e90a"; }
+.icon-arrow-top-left:before { content: "\e90b"; }
+.icon-arrow-double-collapse-right:before { content: "\e90c"; }
+.icon-arrow-top-right:before { content: "\e90d"; }
+.icon-arrow-double-collapse-down:before { content: "\e90e"; }
+.icon-arrow-bottom-left:before { content: "\e90f"; }
+.icon-arrow-double-collapse-up:before { content: "\e910"; }
+.icon-arrow-bottom-right:before { content: "\e911"; }
+.icon-arrow-double-top-left:before { content: "\e912"; }
+.icon-chevron-left:before { content: "\e913"; }
+.icon-arrow-double-top-right:before { content: "\e914"; }
+.icon-chevron-right:before { content: "\e915"; }
+.icon-arrow-double-bottom-left:before { content: "\e916"; }
+.icon-chevron-down:before { content: "\e917"; }
+.icon-arrow-double-bottom-right:before { content: "\e918"; }
+.icon-chevron-up:before { content: "\e919"; }
+.icon-arrow-play-left:before { content: "\e91a"; }
+.icon-chevron-collapse-left:before { content: "\e91b"; }
+.icon-arrow-play-right:before { content: "\e91c"; }
+.icon-chevron-collapse-right:before { content: "\e91d"; }
+.icon-arrow-play-down:before { content: "\e91e"; }
+.icon-chevron-collapse-down:before { content: "\e91f"; }
+.icon-arrow-play-up:before { content: "\e920"; }
+.icon-chevron-collapse-up:before { content: "\e921"; }
+.icon-arrow-drop-left:before { content: "\e922"; }
+.icon-chevron-top-left:before { content: "\e923"; }
+.icon-arrow-drop-right:before { content: "\e924"; }
+.icon-chevron-top-right:before { content: "\e925"; }
+.icon-arrow-drop-down:before { content: "\e926"; }
+.icon-chevron-bottom-left:before { content: "\e927"; }
+.icon-arrow-drop-up:before { content: "\e928"; }
+.icon-chevron-bottom-right:before { content: "\e929"; }
+.icon-arrow-bold-left:before { content: "\e92a"; }
+.icon-arrow-double-left:before { content: "\e92b"; }
+.icon-arrow-bold-right:before { content: "\e92c"; }
+.icon-arrow-double-right:before { content: "\e92d"; }
+.icon-arrow-bold-up:before { content: "\e92e"; }
+.icon-arrow-double-down:before { content: "\e92f"; }
+.icon-arrow-bold-down:before { content: "\e930"; }
+.icon-arrow-u-left-top:before { content: "\e931"; }
+.icon-arrow-u-right-top:before { content: "\e932"; }
+.icon-arrow-u-up-left:before { content: "\e933"; }
+.icon-arrow-u-down-right:before { content: "\e934"; }
+.icon-arrow-turn-left-top:before { content: "\e935"; }
+.icon-arrow-turn-right-top:before { content: "\e936"; }
+.icon-arrow-turn-left-bottom:before { content: "\e937"; }
+.icon-arrow-turn-right-bottom:before { content: "\e938"; }
+.icon-arrow-turn-up-right:before { content: "\e939"; }
+.icon-arrow-turn-bottom-right:before { content: "\e93a"; }
+.icon-arrow-turn-up-left:before { content: "\e93b"; }
+.icon-arrow-turn-bottom-left:before { content: "\e93c"; }
+.icon-arrow-move:before { content: "\e93d"; }
+.icon-arrow-escalate:before { content: "\e93e"; }
+
+
+/**
+ * Make by Icon Font Exporter
+ * https://www.figma.com/community/plugin/1129455674275940478/Icon-Font-Exporter
+ */
