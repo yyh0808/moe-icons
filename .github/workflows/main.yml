@@ -27,10 +27,10 @@ jobs:
           CLOUDFLARE_R2_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY }}
           CLOUDFLARE_R2_SECRET_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_KEY }}
           CLOUDFLARE_R2_ENDPOINT: https://svg.moeicons.com
+          AWS_REGION: us-east-1
         run: |
           echo "Release Tag: ${{ github.event.release.tag_name }}"
           aws configure set aws_access_key_id ${CLOUDFLARE_R2_ACCESS_KEY}
           aws configure set aws_secret_access_key ${CLOUDFLARE_R2_SECRET_KEY}
-          # 确保这里的路径 './MoeLite/svgs' 是正确的
           aws s3 sync ./MoeLite/svgs s3://moe-icons-website/version-${{ github.event.release.tag_name }}/ \
           --endpoint-url ${CLOUDFLARE_R2_ENDPOINT} --debug
