@@ -3,6 +3,7 @@ name: Sync SVG to Cloudflare R2
 on:
   release:
     types: [published]
+  workflow_dispatch: # 允许手动触发
 
 jobs:
   deploy:
