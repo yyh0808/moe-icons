@@ -26,9 +26,11 @@ jobs:
         env:
           CLOUDFLARE_R2_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY }}
           CLOUDFLARE_R2_SECRET_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_KEY }}
-        run: |
-          echo "Release Tag: ${{ github.event.release.tag_name }}"
-          aws configure set aws_access_key_id ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY }}
-          aws configure set aws_secret_access_key ${{ secrets.CLOUDFLARE_R2_SECRET_KEY }}
-          aws s3 sync ./MoeLite/svgs s3://moe-icons-website/version-${{ github.event.release.tag_name }}/ \
-          --endpoint-url https://06898acc14d0b9633f259fe20145fd49.r2.cloudflarestorage.com --no-sign-request --debug
+          CLOUDFLARE_R2_ENDPOINT: https://svg.moeicons.com
+          run: |
+            echo "Release Tag: ${{ github.event.release.tag_name }}"
+            aws configure set aws_access_key_id $CLOUDFLARE_R2_ACCESS_KEY
+            aws configure set aws_secret_access_key $CLOUDFLARE_R2_SECRET_KEY
+            # Note: Ensure the source path './MoeLite/svgs' is correct
+            aws s3 sync ./MoeLite/svgs s3://moe-icons-website/version-${{ github.event.release.tag_name }}/ \
+            --endpoint-url $CLOUDFLARE_R2_ENDPOINT --debug
