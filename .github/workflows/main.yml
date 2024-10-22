@@ -25,5 +25,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
+          aws configure set aws_access_key_id ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.CLOUDFLARE_API_TOKEN }}
           aws s3 sync ./MoeLite/svgs s3://moe-icons-website/version-${{ github.event.release.tag_name }}/ \
           --endpoint-url https://svg.moeicons.com
