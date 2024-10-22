@@ -1,0 +1,29 @@
+name: Sync SVG to Cloudflare R2
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 检出当前仓库代码
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      # 安装 AWS CLI
+      - name: Install AWS CLI v2
+        uses: aws-actions/aws-cli-action@v2
+        with:
+          version: 2.x
+
+      # 使用aws-cli将SVG文件同步到Cloudflare R2
+      - name: Sync SVG to Cloudflare R2
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          aws s3 sync ./MoeLite/svgs s3://moe-icons-website/version-${{ github.event.release.tag_name }}/ \
+          --endpoint-url https://svg.moeicons.com
