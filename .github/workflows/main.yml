@@ -4,37 +4,49 @@ on:
   release:
     types: [published]
   workflow_dispatch:
+    inputs:
+      tag:
+        description: "Specify a release tag manually if known."
+        required: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 检出当前仓库代码
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2 # 使用 'uses' 来引用预定义的 action
 
-      # 安装 AWS CLI
       - name: Install AWS CLI
         run: |
           sudo apt-get update
           sudo apt-get install -y awscli
           aws --version
 
-      # 使用 aws-cli 将 SVG 文件同步到 Cloudflare R2
+      - name: Determine Release Tag
+        id: determine-tag
+        run: |
+          if [ "${{ github.event_name }}" == "release" ]; then
+            echo "Tag from release event: ${{ github.event.release.tag_name }}"
+            echo "::set-output name=release_tag::${{ github.event.release.tag_name }}"
+          elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "Manually specified tag: ${{ github.event.inputs.tag }}"
+            echo "::set-output name=release_tag::${{ github.event.inputs.tag }}"
+          else
+            echo "No valid event type for release tagging."
+            exit 1
+
       - name: Sync SVG to Cloudflare R2
         env:
           CLOUDFLARE_R2_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY }}
           CLOUDFLARE_R2_SECRET_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_KEY }}
           CLOUDFLARE_R2_ENDPOINT: https://06898acc14d0b9633f259fe20145fd49.r2.cloudflarestorage.com
           AWS_REGION: us-east-1
-        run: |
-          echo "Full GitHub Event JSON:"
-          echo ${{ toJson(github.event) }}
-          export RELEASE_TAG=${{ github.event.release.tag_name }}
-          echo "Release Tag: $RELEASE_TAG"
+        run: | # 确保 'run' 的缩进和上面的 'env' 处于同级
+          RELEASE_TAG=${{ steps.determine-tag.outputs.release_tag }}
+          echo "Using Release Tag: $RELEASE_TAG"
           aws configure set aws_access_key_id ${CLOUDFLARE_R2_ACCESS_KEY}
           aws configure set aws_secret_access_key ${CLOUDFLARE_R2_SECRET_KEY}
           aws configure set region ${AWS_REGION}
-          aws s3 sync ./MoeLite/svgs s3://moe-icons-website/version-${{ github.event.release.tag_name }}/ \
+          aws s3 sync ./MoeLite/svgs s3://moe-icons-website/version-$RELEASE_TAG/ \
           --endpoint-url ${CLOUDFLARE_R2_ENDPOINT} --debug
