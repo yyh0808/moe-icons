@@ -26,10 +26,11 @@ jobs:
         env:
           CLOUDFLARE_R2_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY }}
           CLOUDFLARE_R2_SECRET_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_KEY }}
-          CLOUDFLARE_R2_ENDPOINT: https://06898acc14d0b9633f259fe20145fd49.r2.cloudflarestorage.com
+          CLOUDFLARE_R2_ENDPOINT: https://svg.moeicons.com
           AWS_REGION: us-east-1
         run: |
           echo "Release Tag: ${{ github.event.release.tag_name }}"
+          echo "Debug Release Tag: ${{ github.event.release.tag_name }}"
           aws configure set aws_access_key_id ${CLOUDFLARE_R2_ACCESS_KEY}
           aws configure set aws_secret_access_key ${CLOUDFLARE_R2_SECRET_KEY}
           aws configure set region ${AWS_REGION}
