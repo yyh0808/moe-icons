@@ -14,43 +14,53 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
+      # 1. Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Install AWS CLI
+      # 2. Install AWS CLI v2 using官方安装脚本
+      - name: Install AWS CLI v2
         run: |
-          sudo apt-get update
-          sudo apt-get install -y unzip
           curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
           unzip awscliv2.zip
           sudo ./aws/install
           aws --version
 
+      # 3. Determine Release Tag
       - name: Determine Release Tag
         id: determine-tag
         run: |
           if [ "${{ github.event_name }}" == "release" ]; then
-            echo "Tag from release event: ${{ github.event.release.tag_name }}"
-            echo "::set-output name=release_tag::${{ github.event.release.tag_name }}"
-          elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            echo "Manually specified tag: ${{ github.event.inputs.tag }}"
-            echo "::set-output name=release_tag::${{ github.event.inputs.tag }}"
+            RELEASE_TAG="${{ github.event.release.tag_name }}"
+            echo "Tag from release event: $RELEASE_TAG"
+          elif [ "${{ github.event_name }}" == "workflow_dispatch" ] && [ -n "${{ github.event.inputs.tag }}" ]; then
+            RELEASE_TAG="${{ github.event.inputs.tag }}"
+            echo "Manually specified tag: $RELEASE_TAG"
           else
-            echo "No valid event type for release tagging."
+            echo "No valid event type or tag provided for release tagging."
             exit 1
           fi
+          echo "release_tag=${RELEASE_TAG}" >> $GITHUB_OUTPUT
 
+      # 4. Sync SVG to Cloudflare R2
       - name: Sync SVG to Cloudflare R2
         env:
           CLOUDFLARE_R2_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY }}
           CLOUDFLARE_R2_SECRET_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_KEY }}
           CLOUDFLARE_R2_ENDPOINT: https://06898acc14d0b9633f259fe20145fd49.r2.cloudflarestorage.com
           AWS_REGION: us-east-1
+          AWS_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_KEY }}
         run: |
           RELEASE_TAG=${{ steps.determine-tag.outputs.release_tag }}
           echo "Using Release Tag: $RELEASE_TAG"
-          aws configure set aws_access_key_id ${CLOUDFLARE_R2_ACCESS_KEY}
-          aws configure set aws_secret_access_key ${CLOUDFLARE_R2_SECRET_KEY}
-          aws configure set region ${AWS_REGION}
+          
+          if [ -z "$RELEASE_TAG" ]; then
+            echo "Release tag is empty. Exiting."
+            exit 1
+          fi
+          
           aws s3 sync ./MoeLite/svgs s3://moe-icons-website/version-$RELEASE_TAG/ \
-          --endpoint-url ${CLOUDFLARE_R2_ENDPOINT} --debug
+            --endpoint-url ${CLOUDFLARE_R2_ENDPOINT} \
+            --region ${AWS_REGION} \
+            --debug
